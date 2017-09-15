@@ -1,9 +1,9 @@
 {
-  "name": "lint-staged",
-  "description": "Lint files staged by git",
+  "name": "lint-commited",
+  "description": "Lint files commited in your pull request for git",
   "main": "index.js",
   "bin": {
-    "lint-staged": "index.js"
+    "lint-commited": "index.js"
   },
   "engines": {
     "node": ">=4.0.0"
@@ -35,12 +35,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/okonet/lint-staged.git"
+    "url": "https://github.com/clakech/lint-commited.git"
   },
   "keywords": [
     "lint",
     "git",
-    "staged",
+    "commited",
+    "pull-request",
+    "diff",
     "javascript",
     "css",
     "scss",
@@ -53,12 +55,13 @@
   "author": "Andrey Okonetchnikov <andrey@okonet.ru>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/okonet/lint-staged/issues"
+    "url": "https://github.com/clakech/lint-commited/issues"
   },
-  "homepage": "https://github.com/okonet/lint-staged#readme",
+  "homepage": "https://github.com/clakech/lint-commited#readme",
   "dependencies": {
     "app-root-path": "^2.0.0",
     "chalk": "^2.1.0",
+    "commited-git-files": "0.0.1",
     "cosmiconfig": "^1.1.0",
     "execa": "^0.8.0",
     "is-glob": "^4.0.0",
@@ -69,7 +72,6 @@
     "minimatch": "^3.0.0",
     "npm-which": "^3.0.1",
     "p-map": "^1.1.1",
-    "staged-git-files": "0.0.4",
     "stringify-object": "^3.2.0"
   },
   "devDependencies": {

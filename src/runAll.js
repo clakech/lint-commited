@@ -1,6 +1,6 @@
 'use strict'
 
-const sgf = require('staged-git-files')
+const cgf = require('commited-git-files')
 const Listr = require('listr')
 const has = require('lodash/has')
 const runScript = require('./runScript')
@@ -20,12 +20,13 @@ module.exports = function runAll(packageJson, config) {
   }
 
   const gitDir = config.gitDir
+  const targetBranch = config.targetBranch
   const concurrent = config.concurrent
   const renderer = config.renderer
-  sgf.cwd = resolveGitDir(gitDir)
+  cgf.cwd = resolveGitDir(gitDir)
 
   return new Promise((resolve, reject) => {
-    sgf('ACM', (err, files) => {
+    cgf(targetBranch, 'ACM', (err, files) => {
       if (err) {
         return reject(err)
       }
