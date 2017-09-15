@@ -52,7 +52,7 @@
     "code",
     "quality"
   ],
-  "author": "Andrey Okonetchnikov <andrey@okonet.ru>",
+  "author": "@cyril_lakech",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/clakech/lint-commited/issues"
