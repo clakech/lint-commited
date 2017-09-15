@@ -25,6 +25,15 @@ if (process.stdout.isTTY) {
  * Root lint-staged function that is called from .bin
  */
 module.exports = function lintStaged() {
+
+  const targetBranch = process.argv.slice(2)[0];
+  if (!targetBranch) {
+    console.error(
+      `Missing targetBranch arg`
+    );
+    process.exit(1);
+  }
+
   cosmiconfig('lint-staged', {
     rc: '.lintstagedrc',
     rcExtensions: true
@@ -33,6 +42,7 @@ module.exports = function lintStaged() {
       // result.config is the parsed configuration object
       // result.filepath is the path to the config file that was found
       const config = validateConfig(getConfig(result.config))
+      config.targetBranch = targetBranch;
 
       if (config.verbose) {
         console.log(`

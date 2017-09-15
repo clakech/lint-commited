@@ -1,48 +1,27 @@
-# lint-staged [![Build Status](https://travis-ci.org/okonet/lint-staged.svg?branch=master)](https://travis-ci.org/okonet/lint-staged) [![AppVeyor branch](https://img.shields.io/appveyor/ci/okonet/lint-staged/master.svg)](https://ci.appveyor.com/project/okonet/lint-staged) [![npm version](https://badge.fury.io/js/lint-staged.svg)](https://badge.fury.io/js/lint-staged) [![Codecov](https://codecov.io/gh/okonet/lint-staged/branch/master/graph/badge.svg)](https://codecov.io/gh/okonet/lint-staged)
+# lint-commited 
 
-Run linters against staged git files and don't let :poop: slip into your code base!
+forked from lint-staged https://github.com/okonet/lint-staged <3
 
-## Why
-
-[Read the Medium post](https://medium.com/@okonetchnikov/make-linting-great-again-f3890e1ad6b8#.8qepn2b5l)
-
-Linting makes more sense when running before committing your code. By doing that you can ensure no errors are going into repository and enforce code style. But running a lint process on a whole project is slow and linting results can be irrelevant. Ultimately you only want to lint files that will be committed.
-
-This project contains a script that will run arbitrary npm and shell tasks with a list of staged files as an argument, filtered by a specified glob pattern.
-
-## Related blogs posts
-
-* [Running Jest Tests Before Each Git Commit](https://benmccormick.org/2017/02/26/running-jest-tests-before-each-git-commit/)
-
-> If you've written one, please submit a PR with the link to it!
+Run linters against commited git in your pull-request and don't let :poop: slip into your code base!
 
 ## Installation and setup
 
-1. `npm install --save-dev lint-staged husky`
+1. `npm install --save-dev lint-commited`
 1. Install and setup your linters just like you would do normally. Add appropriate `.eslintrc`, `.stylelintrc`, etc.
 1. Update your `package.json` like this:
   ```json
   {
     "scripts": {
-      "precommit": "lint-staged"
+      "lint-commited": "lint-commited",
     },
     "lint-staged": {
       "*.js": ["eslint --fix", "git add"]
     }
   }
   ```
-
-Now change a few files, `git add` some of them to your commit and try to `git commit` them.
+1. In your pull-request build `npm run lint-commited ${YOUR_TARGER_BRANCH}`
 
 See [examples](#examples) and [configuration](#configuration) below.
-
-> I recommend using [husky](https://github.com/typicode/husky) to manage git hooks but you can use any other tool.
-
-> **NOTE:**
->
-> If you're using commitizen and having following npm-script `{ commit: git-cz }`, `precommit` hook will run twice before commitizen cli and after the commit. [This buggy behaviour is introduced by husky](https://github.com/okonet/lint-staged/issues/152#issuecomment-306046520).
->
-> To mitigate this rename your `commit` npm script to something non git hook namespace like, for example `{ cz: git-cz }`
 
 ## Configuration
 
@@ -80,9 +59,9 @@ Should be an object where each value is a command to run and its key is a glob p
 }
 ```
 
-This config will execute `npm run my-task` with the list of currently staged files passed as arguments.
+This config will execute `npm run my-task` with the list of currently commited files passed as arguments.
 
-So, considering you did `git add file1.ext file2.ext`, lint-staged will run the following command:
+So, considering you did modify `file1.ext` and `file2.ext`, lint-commited will run the following command:
 
 `npm run my-task -- file1.ext file2.ext`
 
