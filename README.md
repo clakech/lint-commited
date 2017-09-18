@@ -1,25 +1,25 @@
-# lint-commited 
+# lint-committed 
 
 forked from lint-staged https://github.com/okonet/lint-staged <3
 
-Run linters against commited git in your pull-request and don't let :poop: slip into your code base!
+Run linters against committed git in your pull-request and don't let :poop: slip into your code base!
 
 ## Installation and setup
 
-1. `npm install --save-dev lint-commited`
+1. `npm install --save-dev lint-committed`
 1. Install and setup your linters just like you would do normally. Add appropriate `.eslintrc`, `.stylelintrc`, etc.
 1. Update your `package.json` like this:
   ```json
   {
     "scripts": {
-      "lint-commited": "lint-commited",
+      "lint-committed": "lint-committed",
     },
     "lint-staged": {
       "*.js": ["eslint --fix", "git add"]
     }
   }
   ```
-1. In your pull-request build `npm run lint-commited ${YOUR_TARGER_BRANCH}`
+1. In your pull-request build `npm run lint-committed ${YOUR_TARGER_BRANCH}`
 
 See [examples](#examples) and [configuration](#configuration) below.
 
@@ -59,9 +59,9 @@ Should be an object where each value is a command to run and its key is a glob p
 }
 ```
 
-This config will execute `npm run my-task` with the list of currently commited files passed as arguments.
+This config will execute `npm run my-task` with the list of currently committed files passed as arguments.
 
-So, considering you did modify `file1.ext` and `file2.ext`, lint-commited will run the following command:
+So, considering you did modify `file1.ext` and `file2.ext`, lint-committed will run the following command:
 
 `npm run my-task -- file1.ext file2.ext`
 

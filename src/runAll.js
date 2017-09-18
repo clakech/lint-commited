@@ -1,6 +1,6 @@
 'use strict'
 
-const cgf = require('commited-git-files')
+const cgf = require('committed-git-files')
 const Listr = require('listr')
 const has = require('lodash/has')
 const runScript = require('./runScript')

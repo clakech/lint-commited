@@ -1,9 +1,9 @@
 {
-  "name": "lint-commited",
-  "description": "Lint files commited in your pull request for git",
+  "name": "lint-committed",
+  "description": "Lint files committed in your pull request for git",
   "main": "index.js",
   "bin": {
-    "lint-commited": "index.js"
+    "lint-committed": "index.js"
   },
   "engines": {
     "node": ">=4.0.0"
@@ -35,12 +35,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/clakech/lint-commited.git"
+    "url": "https://github.com/clakech/lint-committed.git"
   },
   "keywords": [
     "lint",
     "git",
-    "commited",
+    "committed",
     "pull-request",
     "diff",
     "javascript",
@@ -55,13 +55,13 @@
   "author": "@cyril_lakech",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/clakech/lint-commited/issues"
+    "url": "https://github.com/clakech/lint-committed/issues"
   },
-  "homepage": "https://github.com/clakech/lint-commited#readme",
+  "homepage": "https://github.com/clakech/lint-committed#readme",
   "dependencies": {
     "app-root-path": "^2.0.0",
     "chalk": "^2.1.0",
-    "commited-git-files": "0.0.1",
+    "committed-git-files": "0.0.1",
     "cosmiconfig": "^1.1.0",
     "execa": "^0.8.0",
     "is-glob": "^4.0.0",
