@@ -1,6 +1,6 @@
 # lint-committed 
 
-forked from lint-staged https://github.com/okonet/lint-staged <3
+forked from lint-staged https://github.com/okonet/lint-staged ❤️
 
 Run linters against committed git in your pull-request and don't let :poop: slip into your code base!
 
